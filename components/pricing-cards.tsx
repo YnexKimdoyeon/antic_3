@@ -1,54 +1,47 @@
 import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
 export function PricingCards() {
-  const plans = [
+  const services = [
     {
-      type: "컬쳐랜드",
-      discount: "95%",
-      description: "문화상품권 최고가 매입",
-      color: "bg-blue-500",
+      type: "소액결제 현금화",
+      rate: "90%",
+      description: "내 손안에 비상금\n휴대폰만 있어도 1분만에 비상금 마련",
+      subtext: "비대면 무서류 신용조회 없이 빠른 급전마련",
     },
     {
-      type: "해피머니",
-      discount: "96%",
-      description: "해피머니 상품권 매입",
-      color: "bg-primary",
+      type: "신용카드 현금화",
+      rate: "96%",
+      description: "비대면 무서류 무방문\n조회없이 1분만에 비상금 마련",
+      subtext: "신용점수 하락없이 카드만 있으면 최대 300만원까지 당일 입금",
     },
     {
-      type: "북앤라이프",
-      discount: "94%",
-      description: "도서문화상품권 매입",
-      color: "bg-orange-500",
+      type: "정보이용료 현금화",
+      rate: "88%",
+      description: "소액결제 한도가 없어도\n높은 정산율 즉시 현금마련",
+      subtext: "복잡한 설치 없이 1분만에 빠른 현금화 단순한 과정 빠른 입금",
     },
   ]
 
   return (
-    <section id="pricing" className="py-20 bg-background">
-      <div className="container px-4">
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">상품권 매입 시세</h2>
-          <p className="text-muted-foreground">상품권 종류별 실시간 매입가를 확인하세요</p>
-        </div>
-
-        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
-          {plans.map((plan, index) => (
+    <section id="pricing" className="py-16 md:py-20 lg:py-24 bg-background">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-6xl gap-4 md:gap-6 grid-cols-1 md:grid-cols-3">
+          {services.map((service, index) => (
             <Card key={index} className="relative overflow-hidden border-2 p-6 hover:border-primary transition-colors">
-              <div className="mb-4">
-                <Badge className={`${plan.color} text-white mb-2`}>{plan.type}</Badge>
-                <div className="text-4xl font-bold text-primary mb-2">{plan.discount}</div>
-                <p className="text-sm text-muted-foreground">{plan.description}</p>
+              <div className="mb-4 text-center">
+                <div className="text-lg font-bold text-foreground mb-2">{service.type}</div>
+                <div className="text-4xl font-bold text-primary mb-4">{service.rate}</div>
+                <p className="text-sm text-muted-foreground whitespace-pre-line mb-3">{service.description}</p>
+                <p className="text-xs text-muted-foreground">{service.subtext}</p>
               </div>
-              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">판매하기</Button>
+              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 mt-4">
+                <a href="https://untactsave.com" target="_blank" rel="noopener noreferrer">
+                  상담하기
+                </a>
+              </Button>
             </Card>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <Button variant="link" className="text-primary">
-            전체 상품권 시세 보기 →
-          </Button>
         </div>
       </div>
     </section>

@@ -7,8 +7,8 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "상품권 팩토리 - 최고가 상품권 매입",
-  description: "컬쳐랜드, 해피머니, 북앤라이프 등 모든 상품권을 시중 최고가로 즉시 매입합니다",
+  title: "바로티켓 - 소액결제 현금화, 신용카드 현금화",
+  description: "소액결제 90%, 신용카드 96%, 정보이용료 88% 현금화. 비대면 무서류 빠른 입금",
   generator: "v0.app",
 }
 

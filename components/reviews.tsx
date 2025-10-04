@@ -1,69 +1,56 @@
-export function Reviews() {
-  return (
-    <section className="py-20 bg-gradient-to-b from-primary/5 to-primary/10">
-      <div className="container px-4">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground">
-            <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            고객님들의 생생한 후기
-          </div>
+"use client"
 
-          <h2 className="mb-12 text-3xl font-bold text-foreground md:text-4xl">
-            고객님들의 실제 거래 후기가 증명합니다
+import { useEffect, useState } from "react"
+
+export function Reviews() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const deposits = [
+    { name: "김**님", amount: "500,000원", time: "방금 전" },
+    { name: "이**님", amount: "1,200,000원", time: "2분 전" },
+    { name: "박**님", amount: "800,000원", time: "5분 전" },
+    { name: "최**님", amount: "2,000,000원", time: "8분 전" },
+    { name: "정**님", amount: "650,000원", time: "12분 전" },
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % deposits.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [deposits.length])
+
+  return (
+    <section className="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-primary/5 to-primary/10">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="mb-8 text-2xl sm:text-3xl md:text-4xl font-bold text-foreground text-balance">
+            실시간 입금 현황
           </h2>
 
-          <div className="relative mx-auto max-w-sm">
-            <div className="aspect-[9/16] overflow-hidden rounded-3xl border-8 border-foreground/10 bg-white shadow-2xl">
-              <div className="flex h-full flex-col p-6">
-                <div className="mb-6 text-left">
-                  <div className="mb-2 text-sm text-muted-foreground">고객센터</div>
-                  <div className="text-xs text-muted-foreground">오늘 오후 2:30</div>
-                </div>
-
-                <div className="flex-1 space-y-4">
-                  <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-muted p-4">
-                    <p className="text-sm text-foreground">
-                      안녕하세요! 컬쳐랜드 5만원권
-                      <br />
-                      매입 가능한가요?
-                      <br />
-                      시세가 어떻게 되나요?
-                    </p>
+          <div className="relative mx-auto max-w-md overflow-hidden rounded-2xl border-2 border-primary/20 bg-white p-8 shadow-xl">
+            <div className="space-y-4">
+              {deposits.map((deposit, index) => (
+                <div
+                  key={index}
+                  className={`flex items-center justify-between rounded-lg bg-gradient-to-r from-primary/10 to-primary/5 p-4 transition-all duration-500 ${
+                    index === currentIndex ? "scale-105 border-2 border-primary" : "opacity-50"
+                  }`}
+                >
+                  <div className="text-left">
+                    <div className="font-bold text-foreground">{deposit.name}</div>
+                    <div className="text-sm text-muted-foreground">{deposit.time}</div>
                   </div>
-
-                  <div className="ml-auto max-w-[85%] rounded-2xl rounded-tr-sm bg-primary p-4">
-                    <p className="text-sm text-primary-foreground">
-                      안녕하세요 고객님!
-                      <br />
-                      컬쳐랜드 5만원권은
-                      <br />
-                      현재 94% 매입 가능합니다 😊
-                    </p>
-                  </div>
-
-                  <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-muted p-4">
-                    <p className="text-sm text-foreground">
-                      감사합니다! 그럼 바로
-                      <br />
-                      판매하겠습니다 👍
-                    </p>
+                  <div className="text-right">
+                    <div className="text-xl font-bold text-primary">{deposit.amount}</div>
+                    <div className="text-xs text-green-600">입금완료</div>
                   </div>
                 </div>
-
-                <div className="mt-4 flex items-center gap-2 rounded-full bg-muted px-4 py-3">
-                  <input
-                    type="text"
-                    placeholder="메시지를 입력하세요..."
-                    className="flex-1 bg-transparent text-sm outline-none"
-                    disabled
-                  />
-                  <div className="h-6 w-6 rounded-full bg-primary" />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
+
+          <p className="mt-8 text-sm text-muted-foreground">* 실시간으로 업데이트되는 입금 현황입니다</p>
         </div>
       </div>
     </section>

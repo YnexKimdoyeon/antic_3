@@ -1,11 +1,10 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { PricingCards } from "@/components/pricing-cards"
-import { Features } from "@/components/features"
-import { HowItWorks } from "@/components/how-it-works"
-import { Verification } from "@/components/verification"
+import { PolicyInfo } from "@/components/policy-info"
 import { Reviews } from "@/components/reviews"
-import { FAQ } from "@/components/faq"
+import { AlternativeMethods } from "@/components/alternative-methods"
+import { Warning } from "@/components/warning"
 
 export default function Home() {
   return (
@@ -13,11 +12,10 @@ export default function Home() {
       <Header />
       <Hero />
       <PricingCards />
-      <Features />
-      <HowItWorks />
-      <Verification />
+      <PolicyInfo />
       <Reviews />
-      <FAQ />
+      <AlternativeMethods />
+      <Warning />
     </main>
   )
 }
