@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export function PricingCards() {
   const services = [
@@ -8,18 +9,21 @@ export function PricingCards() {
       rate: "90%",
       description: "내 손안에 비상금\n휴대폰만 있어도 1분만에 비상금 마련",
       subtext: "비대면 무서류 신용조회 없이 빠른 급전마련",
+      icon: "/diamond-icon.png",
     },
     {
       type: "신용카드 현금화",
       rate: "96%",
       description: "비대면 무서류 무방문\n조회없이 1분만에 비상금 마련",
       subtext: "신용점수 하락없이 카드만 있으면 최대 300만원까지 당일 입금",
+      icon: "/credit-card-icon.png",
     },
     {
       type: "정보이용료 현금화",
       rate: "88%",
       description: "소액결제 한도가 없어도\n높은 정산율 즉시 현금마련",
       subtext: "복잡한 설치 없이 1분만에 빠른 현금화 단순한 과정 빠른 입금",
+      icon: "/phone-money-icon.png",
     },
   ]
 
@@ -29,6 +33,15 @@ export function PricingCards() {
         <div className="mx-auto grid max-w-6xl gap-4 md:gap-6 grid-cols-1 md:grid-cols-3">
           {services.map((service, index) => (
             <Card key={index} className="relative overflow-hidden border-2 p-6 hover:border-primary transition-colors">
+              <div className="flex justify-center mb-6">
+                <Image
+                  src={service.icon || "/placeholder.svg"}
+                  alt={service.type}
+                  width={80}
+                  height={80}
+                  className="object-contain"
+                />
+              </div>
               <div className="mb-4 text-center">
                 <div className="text-lg font-bold text-foreground mb-2">{service.type}</div>
                 <div className="text-4xl font-bold text-primary mb-4">{service.rate}</div>

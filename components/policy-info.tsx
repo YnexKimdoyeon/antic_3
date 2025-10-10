@@ -1,13 +1,18 @@
 import { Card } from "@/components/ui/card"
-import { AlertCircle } from "lucide-react"
 
 export function PolicyInfo() {
   return (
     <section className="bg-gray-50 py-16 md:py-24">
       <div className="mx-auto max-w-4xl px-4 md:px-6 lg:px-8">
         <Card className="border-2 border-primary/20 bg-white p-6 md:p-8">
-          <div className="flex items-start gap-4">
-            <AlertCircle className="h-6 w-6 flex-shrink-0 text-primary" />
+          <div className="flex flex-col items-center gap-6 md:flex-row md:items-start">
+            <div className="flex-shrink-0">
+              <img
+                src="/policy-consultant.png"
+                alt="정책 상담원"
+                className="h-48 w-48 object-contain md:h-56 md:w-56"
+              />
+            </div>
             <div className="space-y-4">
               <h3 className="text-xl font-bold text-gray-900 md:text-2xl">정책이란?</h3>
               <p className="text-pretty text-sm leading-relaxed text-gray-700 md:text-base">
