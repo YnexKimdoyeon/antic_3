@@ -9,7 +9,7 @@ export function PricingCards() {
       rate: "90%",
       description: "내 손안에 비상금\n휴대폰만 있어도 1분만에 비상금 마련",
       subtext: "비대면 무서류 신용조회 없이 빠른 급전마련",
-      icon: "/diamond-icon.png",
+      icon: "/phone-money-icon.png",
     },
     {
       type: "신용카드 현금화",
@@ -23,7 +23,7 @@ export function PricingCards() {
       rate: "88%",
       description: "소액결제 한도가 없어도\n높은 정산율 즉시 현금마련",
       subtext: "복잡한 설치 없이 1분만에 빠른 현금화 단순한 과정 빠른 입금",
-      icon: "/phone-money-icon.png",
+      icon: "/diamond-icon.png",
     },
   ]
 
